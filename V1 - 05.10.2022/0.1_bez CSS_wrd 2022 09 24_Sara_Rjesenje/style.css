@@ -1,0 +1,254 @@
+﻿@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900);
+*, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Lato, sans-serif;
+
+}
+html, body{
+    width: 100%;
+    height: 100%;
+}
+.bold{
+    font-weight: bold
+}
+#best-offers{
+    background-color: lightgray;
+}
+
+#firma
+{
+  display: block;
+  height: 25px;
+  width: 200px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+h2.ponuda-dugme-1{
+    display: block;
+    width: 200px;
+    height: 35px;
+    text-align: center;
+    color: white;
+    background-color:cadetblue;
+    margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+}
+p.subtitle{
+  margin-top: 10px;
+}
+#destinacije.offers-container{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: auto;
+    justify-content: space-between;
+}
+ .offer {
+    width: 30%;
+    margin-bottom: 30px;
+    background-color: white;
+    box-shadow: 3px 3px 5px 0px rgba(171, 171, 171, 1);
+}
+.offer-image{
+    height: 270px;
+    width: 100%;
+    background-size: cover;
+}
+
+.offer-details{
+    justify-content: space-between;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: left;
+}
+.offer-destination{
+    float: left;
+    font-weight: bold;
+}
+.offer-price{
+    float: right;
+}
+.offer-description{
+    clear: both;
+}
+.offer-firma{
+    float: left;
+}
+.offer-option{
+    width: 100%;
+}
+.ponuda-dugme-1{
+    background-color:cadetblue;
+    width: 70%;
+    margin: auto;
+    padding: 2.5px;
+    color: white;
+}
+.ponuda-dugme-2{
+    background-color:cadetblue;
+    width: 70%;
+    margin: auto;
+    padding: 2.5px;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#contact-form {
+    margin: 20px 0;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    }
+#contact-form .container {
+    display: flex;
+    margin-bottom: 20px;
+}
+#destinacija-1, #destinacija-2{
+    width: 100%;
+    padding: 5px;
+border: 1px solid gray;
+}
+#destinacija-2{
+        width: 100%;
+        padding: 5px;
+    border: 1px solid gray;
+}
+
+#cijena-1, #cijena-2{
+    width: 100%;
+    padding: 5px;
+border: 1px solid gray;
+}
+#contact-form input {
+    width: 100%;
+    padding: 10px;
+}
+#contact-form .item:nth-of-type(2n+2) {
+    margin-left: 20px;
+}
+.item{
+    width: 50%;
+}
+footer {
+    display: flex;
+    justify-content: space-between;
+    color: #8A8A8A;
+    font-size: 0.7em;
+    padding: 30px 0;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+#messagetxt{
+    width: 100%;
+    height: 110px;
+}
+.button{
+    background-color: rgb(224, 146, 0);
+    color: white;
+    width: 25%;
+    margin-top: 15px;
+    padding: 6px;
+    border: none;
+    font-weight: bold;
+}
+
+.akcija{
+    position: absolute; 
+    right: 10px; 
+    top:50px; 
+    font-size: x-large; 
+    background-color: rgba(255, 0, 0, 40%); 
+    color:white; 
+    width: 120px; 
+    rotate: 45deg;
+}
+
+header {
+    background: url(images/background.jpg) no-repeat center;
+    background-size: cover;
+    text-align: center;
+    color: #ffffff;
+}
+
+header .nav-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+header .nav-primary {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+header .nav-primary li {
+    padding: 0 10px;
+}
+
+header .nav-primary li a {
+    display: block;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+header .header-title {
+    padding-top: 200px;
+    font-weight: normal;
+}
+
+header p {
+    padding-bottom: 200px;
+}
+
+main {
+    width: 100%;
+}
+
+main .title {
+    text-align: center;
+    margin-top: 30px;
+}
+
+main .subtitle {
+    text-align: center;
+    color: #8A8A8A;
+    font-size: 0.9em;
+    margin-bottom: 30px;
+
+}
+
+
+
+footer .footer-links {
+    display: flex;
+    justify-content: flex-end;
+    list-style-type: none;
+}
+
+footer .footer-links li {
+    margin-left: 20px;
+}
+
+footer .footer-links li a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #8A8A8A;
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
+    body {
+      background-color: lightblue;/*obrisati - proba*/
+    }
+  }
