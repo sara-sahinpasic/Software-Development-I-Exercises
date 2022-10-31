@@ -74,10 +74,9 @@
 
 #contacts p {
     padding-left: 25px;
-    /**/
 }
 
-* {
+/** {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -85,22 +84,40 @@
 
 body {
     font-family: Lato, sans-serif;
+}*/
+*,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Lato, sans-serif;
+
 }
-.akcija{
-    position: absolute; 
-    right: 10px; 
-    top:50px; 
-    font-size: x-large; 
-    background-color: rgba(255, 0, 0, 40%); 
-    color:white; 
-    width: 120px; 
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.akcija {
+    position: absolute;
+    right: 10px;
+    top: 50px;
+    font-size: x-large;
+    background-color: rgba(255, 0, 0, 40%);
+    color: white;
+    width: 120px;
     rotate: 45deg;
 }
-.bold{
+
+.bold {
     font-weight: bold
 }
 
-.ponuda-dugme-1, .ponuda-dugme-2, .ponuda-dugme-3  {
+.ponuda-dugme-1,
+.ponuda-dugme-2,
+.ponuda-dugme-3 {
     background-color: rgb(67, 137, 137);
     padding: 6px;
     width: 200px;
@@ -174,7 +191,9 @@ main .subtitle {
     background-color: #F5F5F5;
     color: #000000;
     padding: 30px 0;
+
 }
+
 
 #best-offers .offers-container {
     width: 90%;
@@ -187,10 +206,12 @@ main .subtitle {
 
 #best-offers .offer {
     width: 30%;
+    padding-bottom: 5px;
+    margin-bottom: 30px;
+    position: relative;
     background-color: #ffffff;
     border: none;
-    box-shadow: 3px 3px 5px 0px rgba(171, 171, 171, 1);
-    margin-bottom: 30px;
+    box-shadow: 3px 3px 5px 0px rgb(171 171 171);
 }
 
 #best-offers .offer img {
@@ -208,21 +229,22 @@ main .subtitle {
 }
 
 
-
 .offer-description {
     clear: both;
 }
 
 .offer-destination {
-    float: left;   
+    float: left;
     font-size: large;
     font-weight: bold;
+
 }
 
 .offer-price {
     float: right;
     font-size: large;
     font-weight: normal;
+
 }
 
 .clients-testimonials {}
@@ -309,14 +331,13 @@ footer .footer-links li a {
     height: 25px;
 }
 
-#firma
-{
+#firma {
     display: block;
-  height: 25px;
-  width: 200px;  
-  margin-left: auto;
-  margin-right: auto;
+    height: 25px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
 
-  text-align: center;
-  margin-bottom: 5px;
+    text-align: center;
+    margin-bottom: 5px;
 }
