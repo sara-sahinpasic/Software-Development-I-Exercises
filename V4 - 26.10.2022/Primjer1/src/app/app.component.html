@@ -1,0 +1,56 @@
+<h2>Hello {{ime}}</h2>
+
+<!--<script>
+function dugme1(){
+  alert("Hello");
+}
+</script>
+
+<button onclick="dugme1()">Klik-Dugme1</button>
+
+
+<input [value]="ime" (click)="f2($event)">-->
+
+<input [(ngModel)]="ime" >
+
+<button (click)="dugme2()">Klik-dugme2</button>
+<button (click)="f1()">klik-f1</button>
+
+<button (click)="f3()">klik-f3</button>
+
+
+<button (click)="Preuzmi()">Preuzmi</button>
+
+<table class="table table-borderd" *ngIf="podaci.length>0">
+<thead>
+<tr>
+  <th> Naziv</th>
+  <th>ECTS</th>
+  <th>Ocjena</th>
+</tr>
+</thead>
+
+  <tbody>
+  <tr *ngFor="let p of podaci">
+  <td>
+    {{p.naziv}}
+  </td>
+    <td>
+      {{p.ects}}
+    </td>
+    <td>
+      {{p.prosjecnaOcjena}}
+    </td>
+    <td>
+      <button (click)="odabraniPredmet=p">Uredi</button>
+    </td>s
+  </tbody>
+</table>
+
+<div *ngIf="odabraniPredmet!=null">
+  <label>Naziv</label>
+  <input [(ngModel)]="odabraniPredmet.naziv">
+  <label>ECTS</label>
+  <input [(ngModel)]="odabraniPredmet.ects">
+</div>
+
