@@ -1,0 +1,95 @@
+<h2>Hello {{ime}}</h2>
+
+1. Brojac: {{brojac}} <br/>
+
+<div *ngIf="ime.startsWith('S')">
+  2. Kako si {{ime}}? Znam da se zoveš na slovo S.
+</div>
+
+<div *ngIf="ime.length>3">
+ 3. Ti, {{ime}}, znam da imaš duže ima od 3 slova.
+</div>
+
+<div *ngIf="jeLiVidljivo()" [ngStyle]="stilZaIme()" >
+  4. Poziv preko funkcije: Ti, {{ime}}, znam da imaš duže ima od 3 slova i text ima border i u color-u je.
+</div>
+
+<div *ngFor="let x of niz">
+  7. Ovo je niz: {{x}} - za mene je kreiran novi div el.
+</div>
+
+<button class="btn btn-primary" (click)="testirajString()">5. Testiraj string</button>
+<br/>
+<button class="btn btn-outline-danger" (click)="testirajInterval()">6. Testiraj interval</button>
+<br/><br/>
+Dobro došli - ne mijenjam nista: <input value="{{ime}}"><br/>
+Dobro došli - ne mijenjam nista: <input [value]="ime"><br/>
+Dobro došli - ne mijenjam nista: <input [ngModel]="ime" ><br/>
+Dobro došli, ovdje mijenjam vrijednost prilikom novog unosa u txtBox: <input [ngModel]="ime" (ngModelChange)="ime=$event"><br/>
+Dobro došli, radim isto kao i linija iznad mene, samo kraće napisana: <input [(ngModel)]="ime"><br/>
+<br/>
+
+<!--
+Preuzimam podatke preko fetch-a:
+<button (click)="PreuzmiFetch()">Preuzmi podatke-fetch</button>
+<table class="table table-bordered">
+  <thead>
+    <th>Ime</th>
+    <th>Prezime</th>
+    <th>Slika</th>
+
+  </thead>
+  <tr *ngFor="let x of student_podaci">
+    <td>{{x.ime}}</td>
+    <td>{{x.prezime}}</td>
+    <td><img style="width: 30px" src="{{x.slika_studenta}}"> </td>
+
+  </tr>
+</table>
+
+Preuzimam podatke preko angular metoda:
+
+<table class="table table-bordered">
+  <thead>
+  <th>Ime</th>
+  <th>Prezime</th>
+  <th>Slika</th>
+
+  </thead>
+  <tr *ngFor="let x of student_podaci">
+    <td>{{x.ime}}</td>
+    <td>{{x.prezime}}</td>
+    <td><img style="width: 30px" src="{{x.slika_studenta}}"> </td>
+
+  </tr>
+</table>
+-->
+
+Filter ime: <input [(ngModel)]="filter_ime">
+<table class="table table-bordered">
+  <thead>
+  <th>Ime</th>
+  <th>Prezime</th>
+  <th>Slika</th>
+
+  </thead>
+  <tr *ngFor="let x of getPodaci()">
+    <td>{{x.ime}}</td>
+    <td>{{x.prezime}}</td>
+    <td><img style="width: 30px" src="{{x.slika_studenta}}"> </td>
+    <td><button (click)="odabrani_student=x">Edit</button></td>
+  </tr>
+</table>
+
+<div *ngIf="odabrani_student!=null">
+  <label>Ime</label>
+  <input [(ngModel)]="odabrani_student.ime">
+
+  <label>Prezime</label>
+  <input [(ngModel)]="odabrani_student.prezime">
+
+  <button (click)="snimi()">Snimi izmjene</button>
+</div>
+
+<div *ngFor="let x of niz">{{x}}</div>
+
