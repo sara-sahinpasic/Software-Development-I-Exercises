@@ -1,0 +1,32 @@
+<p>drzave works!</p>
+
+<label>Filer po nazivu: </label>
+<input [(ngModel)]="filer_drzava">
+
+
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Ime</th>
+    <th>Skraćenica</th>
+  </tr>
+  </thead>
+  <!--<tr *ngFor="let x of podaci"> prikaz drzava-->
+  <tr *ngFor="let x of getPodaci()"> <!--filter drzava-->
+    <td>{{x.opis}}</td>
+    <td>{{x.skracenica}}</td>
+    <td><button (click)="odabrana_drzava=x">Edit</button></td>
+  </tr>
+</table>
+
+<div *ngIf="odabrana_drzava!=null">
+  <label>Ime:</label>
+  <input [(ngModel)]="odabrana_drzava.opis">
+  <label>Skraćenica:</label>
+  <input [(ngModel)]="odabrana_drzava.skracenica">
+
+  <button class="btn btn-info" (click)="spremi()">Sačuvaj</button>
+</div>
+
+<button class="btn btn-danger" (click)="novaDrzava()">Nova država</button>
+
