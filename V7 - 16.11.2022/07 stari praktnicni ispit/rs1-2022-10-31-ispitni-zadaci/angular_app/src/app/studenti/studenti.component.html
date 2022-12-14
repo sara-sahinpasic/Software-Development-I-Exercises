@@ -1,0 +1,106 @@
+<p>studenti works!</p>
+
+<div>
+  <input [(ngModel)]="filter_ime_prezime" type="checkbox"> Filter by <span style="font-weight: bold">Ime /
+    prezime</span> <br>
+  <!--<input [(ngModel)]="ime_prezime"><br>-->
+  <input [(ngModel)]="ime_prezime" [disabled]="!filter_ime_prezime"><br>
+  <hr>
+
+  <input [(ngModel)]="filter_opstina" type="checkbox"> Filter by <span style="font-weight: bold">
+    Opština rođenja</span>
+  <br>
+  <input [(ngModel)]="opstina" [disabled]="!filter_opstina"><br>
+  <hr>
+</div>
+<table class="table table-warning">
+  <tr>
+    <th>ID</th>
+    <th>Ime</th>
+    <th>Prezime</th>
+    <th>Broj indeksa</th>
+    <th>Drzava rođenja</th>
+    <th>Opstina rođenja</th>
+    <th>Datum dodavanja</th>
+    <th>Profilna slika</th>
+    <th>Akcija</th>
+  </tr>
+  <tbody>
+    <!--
+  <tr *ngFor="let s of this.studentPodaci">
+    <td>{{s.id}}</td>
+    <td>{{s.ime}}</td>
+    <td>{{s.prezime}}</td>
+    <td>{{s.brojIndeksa}}</td>
+    <td>{{s.opstina_rodjenja!=null?s.opstina_rodjenja.drzava.naziv:""}}</td>
+    <td>{{s.opstina_rodjenja!=null?s.opstina_rodjenja.description:""}}</td>
+    <td>{{s.datum_rodjenja}}</td>
+    <td><img class="profilna-slika" src="{{s.slika_korisnika}}"></td>
+    <td>
+      <button>Obrisi</button>
+      <button>Uredi</button>
+      <button>Maticna knjiga</button>
+    </td>
+  </tr>
+  -->
+    <tr *ngFor="let s of getPodaci()">
+      <td>{{s.id}}</td>
+      <td>{{s.ime}}</td>
+      <td>{{s.prezime}}</td>
+      <td>{{s.brojIndeksa}}</td>
+      <td>{{s.opstina_rodjenja!=null?s.opstina_rodjenja.drzava.naziv:""}}</td>
+      <td>{{s.opstina_rodjenja!=null?s.opstina_rodjenja.description:""}}</td>
+      <td>{{s.datum_rodjenja}}</td>
+      <td><img class="profilna-slika" src="{{s.slika_korisnika}}"></td>
+      <td>
+        <button>Obrisi</button>
+        <!--Ovdje se setuje postojeći s, a u noviDugme() se mora napraviti novi objekat s-->
+        <button (click)="odabranistudent=s">Uredi</button>
+        <button>Maticna knjiga</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<button class="form-label" (click)="noviDugme()">Novi student</button>
+
+<!--*ngIf="odabrani_student!=null" => otvaranje modala  && spriječavanje run-time exceptions-->
+<div *ngIf="odabranistudent!=null" class="modal fade show" id="exampleModalLive" tabindex="-1"
+  aria-labelledby="exampleModalLiveLabel" aria-modal="true" role="dialog" style="display: block;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLiveLabel">Student </h5>
+        <!--(click)="odabrani_student=null => klikom na X zatvaranje modala-->
+        <button type="button" (click)="odabranistudent=null" class="btn-close" aria-label="Close" ></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label class="form-label">Ime</label>
+          <!--[(ngModel)]="odabrani_student.ime" => dvosmjerno: da ime i prezime bude prikazano u text boxovima unutar modala-->
+          <input class="form-control" type="text" placeholder="Ime" [(ngModel)]="odabranistudent.ime">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Prezime</label>
+          <input class="form-control" placeholder="Prezime" [(ngModel)]="odabranistudent.prezime">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Opštine</label>
+          <select class="form-control">
+                                                  <!--[value]="o.id]-->
+              <option *ngFor="let o of opstinaPodaci" value="{{o.id}}">{{o.opis}}</option>
+          </select>
+        </div>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <!--(click)="odabrani_student=null => zatvaranje modala-->
+        <button type="button" class="btn btn-secondary" (click)="odabranistudent=null">Close</button>
+        <button type="button" class="btn btn-primary" (click)="snimidugme()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

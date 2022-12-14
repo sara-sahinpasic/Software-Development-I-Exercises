@@ -1,0 +1,23 @@
+Preuzeti code sa 
+https://github.com/adil-fit-ba/rs1-2022-23
+branch
+vjezbe07_pocetni_nove_tabele ili main
+
+
+link na teams screen share
+https://bit.ly/fit-konsultacije-adil-joldic
+
+
+Preuzeti zadatke sa praktičnog ispita (stari način)
+rs1.app.fit.ba
+2022-23
+07 stari praktnicni ispit
+
+Pokrenuti API
+  - promjeniti verziju DOTNET na 6.0 (umjesto 5.0)
+  - prepraviti connection string - upisati broj indeksa
+  - add-migration
+  - update-database
+  - pokrenuti projekat - otvara se swagger
+  - generisati testne podatke u DB preko akcije /Podaci/Generisi
+Pokrenuti Angular
