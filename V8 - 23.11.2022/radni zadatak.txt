@@ -1,0 +1,19 @@
+link na ovaj dokument
+rs1.app.fit.ba -> vjezbe 08 -> radni zadatak.txt
+
+share ekrana preko Teamsa
+https://bit.ly/fit-ajoldic
+
+Otvorite projekat od prošle sedmice ili preuzmite početni code od prošle sedmice
+https://github.com/adil-fit-ba/rs1-2022-23
+branch "vjezbe08_stari_prakticni_ispit"
+API
+ promjeniti naziv DB-a, 
+ izvršiti migracije,
+ generisati počente podatke preko akcije "TestniPodaci/Generisi"
+Angular
+ pokrenuti app-> logirati se "denis" / "test"
+Zadaci
+ otvoriti rs1-2022-10_31-angular.pdf
+ Zadatak 1 -> nije implementirano dugme Snimi i dugme Obriši
+ Zadatak 2 -> implementirano preuzimanje studentid iz url query parametra

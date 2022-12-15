@@ -1,0 +1,70 @@
+ obrisibutton1(s: any) {
+    //kompletan objekat "s" se salje kroz body... post ima 3 parametra
+    this.httpKlijent.post(`${MojConfig.adresa_servera}/Student/Obrisi1`, s, MojConfig.http_opcije()).subscribe(x=>{
+      this.fetchStudenti();
+    });
+  }
+  
+    
+   [HttpPost]
+        public ActionResult Obrisi1([FromBody] StudentSnimiVM x)
+        {
+            Student? student = _dbContext.Student.Find(x.id);
+
+            if (student == null)
+                return BadRequest("pogresan ID");
+
+            _dbContext.Remove(student);
+
+            _dbContext.SaveChanges();
+            return Ok(student);
+        }
+		------------------
+
+  obrisibutton2(s: any) {
+    //int student id se salje kroz url
+    this.httpKlijent.post(`${MojConfig.adresa_servera}/Student/Obrisi2/${s.id}`, MojConfig.http_opcije()).subscribe(x=>{
+      this.fetchStudenti();
+    });
+  }
+
+
+        [HttpPost("{id}")]
+        public ActionResult Obrisi2(int id)
+        {
+            Student? student = _dbContext.Student.Find(id);
+
+            if (student == null)
+                return BadRequest("pogresan ID");
+
+            _dbContext.Remove(student);
+
+            _dbContext.SaveChanges();
+            return Ok(student);
+        }
+		
+		-----------------
+		
+		
+		
+  obrisibutton3(s: any) {
+    //int student id se salje kroz url
+    this.httpKlijent.post(`${MojConfig.adresa_servera}/Student/Obrisi3?id=${s.id}`, MojConfig.http_opcije()).subscribe(x=>{
+      this.fetchStudenti();
+    });
+  }
+
+
+        [HttpPost]
+        public ActionResult Obrisi3(int id)
+        {
+            Student? student = _dbContext.Student.Find(id);
+
+            if (student == null )
+                return BadRequest("pogresan ID");
+
+            _dbContext.Remove(student);
+
+            _dbContext.SaveChanges();
+            return Ok(student);
+        }

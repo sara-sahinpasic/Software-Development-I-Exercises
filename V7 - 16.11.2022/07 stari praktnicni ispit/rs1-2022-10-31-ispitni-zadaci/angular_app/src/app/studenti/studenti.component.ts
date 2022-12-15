@@ -20,6 +20,8 @@ export class StudentiComponent implements OnInit {
 
   odabranistudent: any;
   opstinaPodaci: any;
+  //akademskaGodinaPodaci: any;
+  naslovDialoga = 'Novi student'; //naslova pop-up modala
 
   constructor(private httpKlijent: HttpClient, private router: Router) {}
 
@@ -44,9 +46,21 @@ export class StudentiComponent implements OnInit {
         this.opstinaPodaci = x;
       });
   }
+  /*fetchAkGodine(): void {
+    this.httpKlijent
+      .get(
+        MojConfig.adresa_servera + '/AkademskeGodine/GetAll_ForCmb',
+        MojConfig.http_opcije()
+      )
+      .subscribe((x) => {
+        this.akademskaGodinaPodaci = x;
+      });
+  }*/
+
   ngOnInit(): void {
     this.fetchStudenti();
     this.fetchOpstine();
+    //this.fetchAkGodine();
   }
 
   getPodaci() {
@@ -64,13 +78,16 @@ export class StudentiComponent implements OnInit {
     );
   }
 
-  noviDugme() {
+  noviStudentDugme() {
+    this.naslovDialoga = 'Novi student';
     //napraviti novi objekat s
     this.odabranistudent = {
       //setovanje [da bi se mogla iskodirati funkcija snimi - koja radi i update i insert]:
       id: 0,
-      ime: '...',
+      //ime: '...',
+      ime: this.ime_prezime, //ovako se upisana vrijdnost unutar textBoxa, prilikom klika na dugme novi student automatski upisuje
       prezime: '...',
+      opstina_rodjenja_id: 2,
     };
   }
 
@@ -88,4 +105,34 @@ export class StudentiComponent implements OnInit {
         this.odabranistudent = null; //zatvaranje dijaloga
       });
   }
- }
+  urediDugme(s: any) {
+    this.naslovDialoga = 'Uredi student';
+    this.odabranistudent = s;
+  }
+  obrisiDugme1(s: any) {
+    this.httpKlijent
+      .post(
+        MojConfig.adresa_servera + '/Student/Obrisi1',
+        s,
+        MojConfig.http_opcije()
+      )
+      .subscribe((x) => {
+        this.fetchStudenti();
+      });
+  }
+
+  obrisiDugme2(s: any) {
+    this.httpKlijent
+      .post(
+        MojConfig.adresa_servera + '/Student/Obrisi2?studentid=' + s.id,
+        MojConfig.http_opcije()
+      )
+      .subscribe((x) => {
+        this.fetchStudenti();
+      });
+  }
+
+  maticnaKnjigaDugme(s:any) {
+    this.router.navigate(["/student-maticnaknjiga", s.id]);
+  }
+}

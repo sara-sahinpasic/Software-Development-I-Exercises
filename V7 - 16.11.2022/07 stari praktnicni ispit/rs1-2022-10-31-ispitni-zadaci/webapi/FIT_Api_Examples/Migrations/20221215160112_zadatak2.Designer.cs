@@ -4,14 +4,16 @@ using FIT_Api_Examples.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FIT_Api_Examples.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221215160112_zadatak2")]
+    partial class zadatak2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -260,14 +262,8 @@ namespace FIT_Api_Examples.Migrations
                     b.Property<double>("cijenaSkolarine")
                         .HasColumnType("float");
 
-                    b.Property<DateTime?>("datumOvjeraZimki")
-                        .HasColumnType("datetime2");
-
                     b.Property<DateTime>("datumUpisZimski")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("evidentiraoKorisnikID")
-                        .HasColumnType("int");
 
                     b.Property<int>("godinaStudija")
                         .HasColumnType("int");
@@ -281,8 +277,6 @@ namespace FIT_Api_Examples.Migrations
                     b.HasKey("id");
 
                     b.HasIndex("akademskaGodina_id");
-
-                    b.HasIndex("evidentiraoKorisnikID");
 
                     b.HasIndex("student_id");
 
@@ -418,12 +412,6 @@ namespace FIT_Api_Examples.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("FIT_Api_Examples.Modul0_Autentifikacija.Models.KorisnickiNalog", "evidnetiraoKorisnik")
-                        .WithMany()
-                        .HasForeignKey("evidentiraoKorisnikID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("FIT_Api_Examples.Modul3_MaticnaKnjiga.Models.Student", "student")
                         .WithMany()
                         .HasForeignKey("student_id")
@@ -431,8 +419,6 @@ namespace FIT_Api_Examples.Migrations
                         .IsRequired();
 
                     b.Navigation("akademskaGodina");
-
-                    b.Navigation("evidnetiraoKorisnik");
 
                     b.Navigation("student");
                 });

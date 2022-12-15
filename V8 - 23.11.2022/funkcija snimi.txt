@@ -1,0 +1,39 @@
+ snimi_dugme() {
+    this.httpKlijent.post(`${MojConfig.adresa_servera}/Student/Snimi`, this.odabranistudent, MojConfig.http_opcije()).subscribe(x=>{
+      this.fetchStudenti();
+    });
+	
+	
+	---
+	
+	
+	 public class StudentSnimiVM
+        {
+            public string ime { get; set; }
+            public int id { get; set; }
+            public string prezime { get; set; }
+            public int? opstina_rodjenja_id { get; set; }
+        }
+        [HttpPost]
+        public ActionResult Snimi([FromBody] StudentSnimiVM x)
+        {
+            Student? student;
+            if (x.id == 0)
+            {
+                student = new Student();
+                _dbContext.Add(student);
+            }
+            else
+            {
+                student = _dbContext.Student.FirstOrDefault(s => s.id == x.id);
+                if (student == null)
+                    return BadRequest("pogresan ID");
+            }
+
+            student.ime = x.ime.RemoveTags();
+            student.prezime = x.prezime.RemoveTags();
+            student.opstina_rodjenja_id = x.opstina_rodjenja_id;
+
+            _dbContext.SaveChanges();
+            return Ok();//moze biti samo OK kao return
+        }

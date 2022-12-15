@@ -5,7 +5,7 @@
   <div class="mb-3 row">
     <label class="col-sm-2 col-form-label">Student ID</label>
     <div class="col-sm-4">
-      <input  disabled class="form-control" >
+      <input [value]="studentid" disabled class="form-control" ><!--kad se uradi reload str da se pojavi varijabla studentID u njegom predvišenom polju na page maticnaKnjiga-->
     </div>
   </div>
 
@@ -25,7 +25,7 @@
 
 <table class="table table-bordered">
   <thead>
-  <tr>
+  <tr >
     <th>ID</th>
     <th>Ak godina</th>
     <th>Godina</th>
@@ -40,17 +40,17 @@
   </thead>
 
   <tbody>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+  <tr *ngFor="let x of maticnaKnjigaPodaci.AkGodines">
+    <td>{{x.upisAkgodineID}}</td>
+    <td>{{x.akaemskaGodinaOpis}}</td>
+    <td>{{x.godinaStudija}}</td>
+    <td>{{x.obnova}}</td>
     <td>
-      <input> |
-      <input>
+      <input [value]="x.zimskiSemestar" disabled> |
+      <input [value]="x.zimskiSmestarOvjera">
     </td>
 
-    <td></td>
+    <td>{{x.evidanetiraoKorisnik}}</td>
     <td>
       <a class="btn btn-link">Ovjeri zimski semestar </a> <br>
 
@@ -63,7 +63,7 @@
 </div>
 
 
-<div class="modal fade show" id="exampleModalLive" tabindex="-1" aria-labelledby="exampleModalLiveLabel" aria-modal="true" role="dialog" style="display: block;">
+<div *ngIf="false" class="modal fade show" id="exampleModalLive" tabindex="-1" aria-labelledby="exampleModalLiveLabel" aria-modal="true" role="dialog" style="display: block;">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
